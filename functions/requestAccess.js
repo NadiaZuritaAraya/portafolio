@@ -10,8 +10,12 @@ const db     = getFirestore();
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const TOKEN_TTL_HOURS = 24;
-const APP_URL         = process.env.APP_URL;
+const APP_URL         = process.env.VITE_APP_URL || process.env.APP_URL;
 const FROM_EMAIL      = process.env.FROM_EMAIL ?? 'portafolio@nadiaengineer.com';
+
+if (!APP_URL) {
+  throw new Error('VITE_APP_URL no está configurado en las variables de entorno de Firebase Functions');
+}
 
 exports.requestAccess = onRequest(
   { cors: true, region: 'us-central1' },

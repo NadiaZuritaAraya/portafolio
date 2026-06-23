@@ -20,6 +20,10 @@ const TOKEN_TTL_HOURS = 24;
 const APP_URL         = process.env.VITE_APP_URL;
 const FROM_EMAIL      = process.env.FROM_EMAIL ?? 'onboarding@resend.dev';
 
+if (!APP_URL) {
+  console.error('VITE_APP_URL no está configurado. Revisa tus variables de entorno.');
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
