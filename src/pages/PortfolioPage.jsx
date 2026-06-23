@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useTokenValidation }  from '../hooks/useTokenValidation';
-import { ProjectGrid }         from '../components/sections/project/ProjectGrid';
-import { ProjectDetail }       from '../components/sections/project/ProjectDetail';
-import { PROJECTS }            from '../constants/projects.js';
+import { CompanyGrid }         from '../components/sections/company/CompanyGrid';
+import { CompanyDetail }       from '../components/sections/company/CompanyDetail';
+import { COMPANIES }           from '../constants/companies.js';
 import { ROUTES }              from '../constants';
 import styles from './PortfolioPage.module.css';
 
@@ -48,7 +48,7 @@ export function PortfolioPage() {
 
   if (!granted) return null;
 
-  const project = selectedSlug ? PROJECTS.find(p => p.slug === selectedSlug) : null;
+  const company = selectedSlug ? COMPANIES.find(c => c.slug === selectedSlug) : null;
 
   return (
     <main className={styles.page}>
@@ -60,11 +60,11 @@ export function PortfolioPage() {
         <a href={ROUTES.home} className={styles.exit}>Salir</a>
       </header>
 
-      {project ? (
-        <ProjectDetail project={project} onBack={goBack} />
+      {company ? (
+        <CompanyDetail company={company} onBack={goBack} />
       ) : (
         <>
-          <ProjectGrid onSelect={selectProject} />
+          <CompanyGrid onSelect={selectProject} />
           <CvSection />
         </>
       )}

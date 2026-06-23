@@ -1,0 +1,145 @@
+.page {
+  padding: 2rem 0;
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 200ms;
+  margin-bottom: 2rem;
+}
+
+.back:hover {
+  border-color: var(--violet);
+  color: var(--violet-light);
+}
+
+.header {
+  margin-bottom: 2.5rem;
+}
+
+.meta {
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 0.5rem 0;
+}
+
+.role {
+  font-size: 1.25rem;
+  color: var(--cyan-light);
+  margin: 0 0 1rem 0;
+  font-weight: 500;
+}
+
+.period,
+.location {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.description {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 100%;
+}
+
+.achievementsSection,
+.stackSection {
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sectionTitle i {
+  color: var(--violet-light);
+}
+
+.achievementsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.achievementItem {
+  padding: 1rem;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.achievementItem i {
+  color: var(--cyan-light);
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+.stackTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.stag {
+  padding: 0.5rem 1rem;
+  background: var(--violet-dim);
+  color: var(--violet-light);
+  border: 1px solid var(--border-v);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 200ms;
+}
+
+.stag:hover {
+  background: var(--violet);
+  color: #fff;
+  border-color: var(--violet);
+}
+
+.stag.stagC {
+  background: var(--cyan-dim);
+  color: var(--cyan-light);
+  border-color: var(--cyan-dim);
+}
+
+.stag.stagC:hover {
+  background: var(--cyan);
+  color: #000;
+  border-color: var(--cyan);
+}

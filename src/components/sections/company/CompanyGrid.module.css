@@ -1,0 +1,158 @@
+.section {
+  padding: 2rem 0;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--cyan-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2rem;
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.fbtn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 200ms;
+}
+
+.fbtn:hover {
+  border-color: var(--violet);
+  color: var(--violet-light);
+}
+
+.fbtn.on {
+  background: var(--violet);
+  border-color: var(--violet);
+  color: #fff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.card:hover {
+  border-color: var(--violet);
+  background: var(--bg3);
+  transform: translateY(-2px);
+}
+
+.cardHeader {
+  margin-bottom: 1rem;
+}
+
+.cardName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 0.25rem 0;
+}
+
+.cardRole {
+  font-size: 0.875rem;
+  color: var(--cyan-light);
+  margin: 0;
+  font-weight: 500;
+}
+
+.cardPeriod {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 0.5rem 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cardDesc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.cardTechs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tag {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  background: var(--violet-dim);
+  color: var(--violet-light);
+  border-radius: 4px;
+  border: 1px solid var(--border-v);
+}
+
+.tag.tagC {
+  background: var(--cyan-dim);
+  color: var(--cyan-light);
+  border-color: var(--cyan-dim);
+}
+
+.tagMore {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--violet-light);
+  font-weight: 500;
+}
+
+.card:hover .link {
+  color: #fff;
+}
