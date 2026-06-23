@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PROJECTS, PROJECT_TYPES } from '../../constants/projects';
+import { PROJECTS, PROJECT_TYPES } from '../../constants/projects.js';
 import styles from './ProjectGrid.module.css';
 
 export function ProjectGrid({ onSelect }) {
