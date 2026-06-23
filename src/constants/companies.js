@@ -19,7 +19,7 @@ export const COMPANIES = [
       'Levantamiento, implementación y desarrollo de proyecto del nuevo informe previsional',
       'Desarrollo de proyecto de canal responsable para la asignación de ejecutivo a cliente',
     ],
-    technologies: ['BigQuery', 'Cloud Data Fusion', 'Dataform', 'Dataproc', 'Dataplex', 'PySpark'],
+    technologies: ['BigQuery', 'Cloud Data Fusion', 'Dataform', 'Dataproc', 'Dataplex', 'PySpark','Dataflow', 'Cloud Functions', 'Terraform', 'Python', 'SQL','Cloud Run', 'Cloud Functions', 'Cloud Storage', 'Dataproc', 'Pub/Sub', 'Cloud Scheduler', 'Dataplex', 'IAM'],
     projects: [
       {
         id: 'afp-migracion-end-to-end',
