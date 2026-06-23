@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+functions/node_modules/
+
+# Environment variables — NUNCA subir a Git
+.env
+.env.local
+.env.*.local
+
+# Build
+dist/
+.firebase/
+
+# Editor
+.DS_Store
+*.log

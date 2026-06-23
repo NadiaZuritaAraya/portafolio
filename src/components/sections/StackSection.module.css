@@ -1,0 +1,68 @@
+.section {
+  padding: 2rem 1.5rem 2.5rem;
+}
+
+.label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--cyan);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+  gap: 10px;
+}
+
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1rem;
+  text-align: center;
+  transition: border-color 0.25s, transform 0.25s;
+  cursor: default;
+}
+
+.card:hover {
+  border-color: var(--violet);
+  transform: translateY(-3px);
+}
+
+.icon {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 7px;
+  transition: color 0.2s;
+}
+
+.violet { color: var(--violet-light); }
+.cyan   { color: var(--cyan-light);   }
+
+.card:hover .icon {
+  color: var(--cyan-light);
+}
+
+.card:hover .cyan {
+  color: var(--violet-light);
+}
+
+.name {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.desc {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}

@@ -1,0 +1,218 @@
+.page { padding: 0 0 3rem; animation: fadeInUp .4s ease both; }
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 1.5rem;
+  transition: color .2s;
+}
+
+.back:hover { color: var(--violet-light); }
+
+.header { margin-bottom: 1.75rem; }
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: .75rem;
+  flex-wrap: wrap;
+}
+
+.typeBadge {
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 100px;
+  border: 1px solid;
+}
+
+.typeBadge.etl  { border-color: var(--border-v); color: var(--violet-light); background: rgba(124,58,237,.1); }
+.typeBadge.dash { border-color: var(--cyan-dim);  color: var(--cyan-light);   background: rgba(6,182,212,.08); }
+.typeBadge.arch { border-color: rgba(134,239,172,.3); color: #86efac; background: rgba(100,180,100,.08); }
+
+.period { font-size: 12px; color: var(--text-muted); }
+
+.title {
+  font-size: clamp(22px, 4vw, 32px);
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: .75rem;
+}
+
+.ghLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--violet-light);
+  border: 1px solid var(--border-v);
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition: background .2s;
+}
+
+.ghLink:hover { background: rgba(124,58,237,.1); }
+
+.caseGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-bottom: 1.25rem;
+}
+
+.caseCard {
+  background: var(--bg3);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+}
+
+.caseLabel {
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.caseText {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.impacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 2rem;
+}
+
+.impact {
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: rgba(124,58,237,.1);
+  border: 1px solid var(--border-v);
+  color: var(--violet-light);
+}
+
+.impactC {
+  background: rgba(6,182,212,.08);
+  border-color: var(--cyan-dim);
+  color: var(--cyan-light);
+}
+
+.sectionTitle {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+}
+
+.imagesSection { margin-bottom: 2rem; }
+
+.imagesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.imgFigure {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.caption {
+  font-size: 11px;
+  color: var(--text-muted);
+  padding: 8px 12px;
+  background: var(--bg2);
+}
+
+.codeSection { margin-bottom: 2rem; }
+
+.codeBox {
+  background: var(--bg3);
+  border: 1px solid var(--border-v);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.codeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg2);
+}
+
+.codeLang {
+  font-size: 11px;
+  color: var(--cyan-light);
+  font-family: var(--font-mono, monospace);
+}
+
+.codeLabel {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.codePre {
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin: 0;
+}
+
+.codePre code {
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--text);
+  white-space: pre;
+}
+
+.stackSection { margin-bottom: 1rem; }
+
+.stackTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.stag {
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  border: 1px solid var(--border-v);
+  color: var(--violet-light);
+  background: rgba(124,58,237,.08);
+}
+
+.stagC {
+  border-color: var(--cyan-dim);
+  color: var(--cyan-light);
+  background: rgba(6,182,212,.08);
+}
