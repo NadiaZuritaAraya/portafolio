@@ -8,7 +8,7 @@ export const COMPANIES = [
     slug:    'afp-capital',
     name:    'AFP Capital',
     period:  'Oct 2024 – Mar 2026',
-    description: 'Migración a arquitectura Data Lakehouse en GCP con gobierno de datos y pipelines automatizados.',
+    description: 'AFP Capital se separó del grupo Sura y, con eso, perdió acceso a toda la infraestructura de datos compartida. La compañía quedó sin plataforma propia. Apoyé la construcción desde cero del nuevo ecosistema de datos en GCP, alineada con los distintos departamentos que se iban formando — Arquitectura, Gobierno de Datos, QA — desarrollando pipelines de ingesta, arquitectura Data Lakehouse en BigQuery, automatización serverless y gobierno de datos, todo en un entorno regulado por la CMF',
     role:    'Senior Data Engineer',
     location: 'Remote',
     achievements: [
