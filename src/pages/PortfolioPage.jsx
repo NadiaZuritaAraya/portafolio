@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useTokenValidation }  from '../hooks/useTokenValidation';
 import { ProjectGrid }         from '../components/sections/project/ProjectGrid';
 import { ProjectDetail }       from '../components/sections/project/ProjectDetail';
-import { PROJECTS }            from '../constants/projects';
+import { PROJECTS }            from '../constants/projects.js';
 import { ROUTES }              from '../constants';
 import styles from './PortfolioPage.module.css';
 
