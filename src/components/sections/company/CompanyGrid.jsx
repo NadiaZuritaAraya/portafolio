@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { COMPANIES, COMPANY_FILTERS } from '../../constants/companies';
+import { COMPANIES, COMPANY_FILTERS } from '../../../constants/companies.js';
 import styles from './CompanyGrid.module.css';
 
 export function CompanyGrid({ onSelect }) {
