@@ -12,10 +12,12 @@ export const COMPANIES = [
     role:    'Senior Data Engineer',
     location: 'Remote',
     achievements: [
-      'Diseño e implementación de arquitectura Data Lakehouse de 3 capas en GCP',
-      'Reducción del tiempo de acceso a datos de 4 horas a 15 minutos',
-      'Implementación de Dataplex para gobierno y linaje de datos',
-      '80+ modelos documentados y versionados en Dataform',
+      'Implementación de arquitectura Data Lakehouse de 3 capas en GCP',
+      'Migración de datos maestros a través de Cloud Data Fusion',
+      'Creación, levantamiento y desarrollo de procesos de datos para la visualización de Power BI (Base maestra, equipo responsable, saldos, carterización de clientes, promesa de contacto, base asesoría)',
+      'Generación de POC de Dataplex para gobierno y linaje de datos',
+      'Levantamiento, implementación y desarrollo de proyecto del nuevo informe previsional',
+      'Desarrollo de proyecto de canal responsable para la asignación de ejecutivo a cliente',
     ],
     technologies: ['BigQuery', 'Cloud Data Fusion', 'Dataform', 'Dataproc', 'Dataplex', 'PySpark'],
     projects: [
