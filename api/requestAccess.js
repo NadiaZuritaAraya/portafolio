@@ -61,6 +61,7 @@ export default async function handler(req, res) {
     }, { merge: true });
 
     const accessUrl = `${APP_URL}/access?token=${token}`;
+    console.log('[requestAccess] URL generada:', accessUrl);
 
     await resend.emails.send({
       from:    FROM_EMAIL,
