@@ -76,15 +76,79 @@ export const COMPANIES = [
       {
         id: 'afp-cloud-functions-run',
         name: 'Desarrollo de Cloud Functions & Cloud Run',
-        description: 'Microservicios serverless para transformación, validación y orquestación de datos con escalado automático.',
+        description: 'Dos patrones complementarios de Cloud Functions en producción: pipeline batch programado para migración de fuentes on-premise y pipeline event-driven para carga de archivos con validación en tres capas, ambos con notificaciones automáticas vía SendGrid.',
+        diagrams: [
+          {
+            id: 'cf-migracion-fuentes',
+            title: 'Migración de Fuentes On-Premise con Cloud Functions',
+            image: '/projects/cloud-functions-run/migracion-cf.png',
+            description: 'Flujo programado diario/mensual que extrae datos desde Oracle, SQL Server y MySQL, los ingesta vía Cloud Data Fusion y aplica lógica de negocio en Cloud Functions antes de escribir en BigQuery para consumo en PowerBI y Looker.',
+            steps: [
+              {
+                label: 'Extracción',
+                detail: 'Cloud Data Fusion conecta las tres fuentes on-premise (Oracle BD, SQL Server, MySQL) y carga los datos crudos en BigQuery organizados en capas Crudo / Curado / Producto.',
+              },
+              {
+                label: 'Orquestación',
+                detail: 'Cloud Scheduler dispara las Cloud Functions según ventanas diarias y mensuales alineadas con los calendarios de corte de AFP Capital.',
+              },
+              {
+                label: 'Lógica de negocio',
+                detail: 'Cloud Functions aplica transformaciones, enriquecimiento y reglas de negocio AFP antes de entregar al procesamiento SQL final en BigQuery.',
+              },
+              {
+                label: 'Notificaciones',
+                detail: 'SendGrid envía alertas automáticas de éxito o fallo a los equipos responsables al finalizar cada carga, con detalle de registros procesados.',
+              },
+              {
+                label: 'Consumo',
+                detail: 'Los modelos certificados en BigQuery alimentan dashboards de reportería en PowerBI y Looker para los equipos de negocio.',
+              },
+            ],
+          },
+          {
+            id: 'cf-carga-archivo',
+            title: 'Carga de Archivo por Evento — GCS → BigQuery',
+            image: '/projects/cloud-functions-run/migracion-archivo.png',
+            description: 'Pipeline event-driven que se activa al detectar un archivo nuevo en Cloud Storage, ejecuta validación secuencial en tres capas dentro de la Cloud Function y finaliza con carga a BigQuery o rechazo detallado según resultado.',
+            steps: [
+              {
+                label: 'Trigger',
+                detail: 'La llegada de un archivo al bucket GCS genera un evento objeto que dispara la Cloud Function de forma automática e inmediata, sin polling.',
+              },
+              {
+                label: 'Capa 1 — Formato y esquema',
+                detail: 'Verifica que el archivo respete la estructura esperada: columnas requeridas, encoding correcto y formato de cabeceras.',
+              },
+              {
+                label: 'Capa 2 — Tipos y nulos',
+                detail: 'Controla que los tipos de dato sean los declarados y que los campos obligatorios no vengan vacíos o con valores nulos.',
+              },
+              {
+                label: 'Capa 3 — Reglas de negocio',
+                detail: 'Aplica validaciones de dominio AFP: rangos de montos válidos, RUT bien formado y fechas dentro del período de proceso vigente.',
+              },
+              {
+                label: 'Rechazo',
+                detail: 'Si falla cualquier capa: el archivo se mueve al Bucket de Fallos para auditoría y SendGrid envía un email con el detalle exacto del error.',
+              },
+              {
+                label: 'Carga exitosa',
+                detail: 'Si pasa las tres capas: inserción en la tabla BigQuery correspondiente y email de confirmación al equipo con el conteo de registros cargados.',
+              },
+            ],
+          },
+        ],
         stack: [
-          'Cloud Functions: Funciones serverless en Python/Node.js para ETL triggers, transformaciones de datos, validaciones.',
-          'Cloud Run: Contenedores Docker con endpoints REST para microservicios de data processing, escalado automático según demanda.',
-          'Python: Desarrollo de lógica de negocio, librerías (pandas, google-cloud-bigquery, requests).',
-          'Docker: Containerización de aplicaciones para Cloud Run.',
-          'Cloud Tasks: Encola y ejecuta tareas asincrónicas (reintentos, deadletter queues).',
-          'Cloud Pub/Sub: Comunicación event-driven entre funciones y servicios.',
-          'IAM & Service Accounts: Autenticación y autorización para acceso a BigQuery y Storage.',
+          'Cloud Functions: Funciones serverless en Python para ETL triggers, transformaciones de datos y validaciones en tres capas (formato, tipos, reglas de negocio).',
+          'Cloud Run: Contenedores Docker con endpoints REST para microservicios de data processing con escalado automático según demanda.',
+          'Cloud Data Fusion: Pipelines de ingesta desde Oracle, SQL Server y MySQL hacia BigQuery con control de esquemas y transformaciones visuales.',
+          'Cloud Scheduler: Orquestación de disparos diarios y mensuales de Cloud Functions según calendarios de corte AFP.',
+          'Cloud Storage: Bucket de entrada para archivos y bucket de fallos para archivos rechazados, con eventos objeto como triggers.',
+          'BigQuery: Destino final de los datos procesados, organizado en capas Crudo/Curado/Producto con procesamiento SQL post-carga.',
+          'SendGrid: Notificaciones automáticas de éxito, fallo y detalle de rechazo a los equipos responsables tras cada ejecución.',
+          'Python: Lógica de negocio, librerías google-cloud-bigquery, pandas y sendgrid para transformación, validación y notificación.',
+          'IAM & Service Accounts: Autenticación y autorización granular para el acceso de Cloud Functions a BigQuery y Cloud Storage.',
         ],
       },
       {

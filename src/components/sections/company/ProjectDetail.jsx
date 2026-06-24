@@ -7,7 +7,7 @@ const LAYER_COLORS = {
 };
 
 export function ProjectDetail({ project, company, onBack }) {
-  const { name, description, stack, image, architecture, realCase } = project;
+  const { name, description, stack, image, architecture, realCase, diagrams } = project;
 
   return (
     <article className={styles.page}>
@@ -79,6 +79,45 @@ export function ProjectDetail({ project, company, onBack }) {
               </ul>
             </div>
           )}
+        </section>
+      )}
+
+      {diagrams?.length > 0 && (
+        <section className={styles.diagramsSection}>
+          <h2>Diagramas de Arquitectura</h2>
+          <div className={styles.diagramsList}>
+            {diagrams.map((diagram, idx) => (
+              <div key={diagram.id} className={styles.diagramBlock}>
+                <div className={styles.diagramBlockHeader}>
+                  <span className={styles.diagramIndex}>{idx + 1}</span>
+                  <div>
+                    <h3>{diagram.title}</h3>
+                    <p className={styles.diagramBlockDesc}>{diagram.description}</p>
+                  </div>
+                </div>
+                <div className={styles.diagramWrapper}>
+                  <img
+                    src={diagram.image}
+                    alt={diagram.title}
+                    className={styles.diagram}
+                  />
+                </div>
+                {diagram.steps?.length > 0 && (
+                  <div className={styles.steps}>
+                    {diagram.steps.map((step, sIdx) => (
+                      <div key={sIdx} className={styles.step}>
+                        <div className={styles.stepNumber}>{sIdx + 1}</div>
+                        <div className={styles.stepContent}>
+                          <strong>{step.label}</strong>
+                          <p>{step.detail}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </section>
       )}
 
