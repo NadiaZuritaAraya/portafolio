@@ -7,7 +7,7 @@ const LAYER_COLORS = {
 };
 
 export function ProjectDetail({ project, company, onBack }) {
-  const { name, description, stack, image, architecture } = project;
+  const { name, description, stack, image, architecture, realCase } = project;
 
   return (
     <article className={styles.page}>
@@ -79,6 +79,36 @@ export function ProjectDetail({ project, company, onBack }) {
               </ul>
             </div>
           )}
+        </section>
+      )}
+
+      {realCase && (
+        <section className={styles.realCaseSection}>
+          <h2>Caso Real AFP — Flujo Cotizaciones</h2>
+          <div className={styles.ioGrid}>
+            <div className={styles.ioCard}>
+              <div className={styles.ioHeader}>
+                <i className="ti ti-arrow-right-circle" aria-hidden="true" />
+                <h3>Lo que entra</h3>
+              </div>
+              <ul>
+                {realCase.inputs.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className={styles.ioCard}>
+              <div className={styles.ioHeader}>
+                <i className="ti ti-sparkles" aria-hidden="true" />
+                <h3>Lo que sale</h3>
+              </div>
+              <ul>
+                {realCase.outputs.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </section>
       )}
 

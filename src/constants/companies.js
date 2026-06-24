@@ -126,6 +126,34 @@ export const COMPANIES = [
           'GitLab: Control de versiones de reglas de calidad, configuraciones de Dataplex y DAGs.',
         ],
       },
+      {
+        id: 'afp-poc-generador-metadata',
+        name: 'POC Generador de Metadata con IA',
+        description: 'Prototipo de generación automática de metadata de negocio para las tablas migradas desde Oracle, combinando el esquema real, datos de muestra y documentación regulatoria para producir descripciones, clasificación PII y alertas de calidad sin intervención manual.',
+        image: '/projects/poc_metadata/poc_metadata.png',
+        realCase: {
+          inputs: [
+            'Esquema de tabla_cotizaciones: 127 columnas migradas desde Oracle, con nombres técnicos heredados del sistema legacy.',
+            '50 filas de muestra del último trimestre: datos reales anonimizados para que el modelo detecte patrones y anomalías.',
+            'Documentación regulatoria indexada: D.L. 3.500 y Circulares CMF/SVS vectorizadas para contextualizar cada campo con su obligación normativa.',
+          ],
+          outputs: [
+            'Descripciones de negocio en español: definición de cada columna en lenguaje entendible para el equipo de negocio, sin tecnicismos de Oracle.',
+            'Clasificación PII columna por columna: identifica automáticamente RUT, montos, cuentas y datos sensibles según la regulación vigente.',
+            'Dominio por tabla: asigna a qué área de negocio pertenece cada tabla (Recaudación, Afiliados, Inversiones, etc.).',
+            'Alertas de anomalías: detecta en la muestra valores que romperían pipelines — como los nulos encontrados en cuota_historica antes de que llegaran a producción.',
+          ],
+        },
+        stack: [
+          'Vertex AI / Gemini: Modelo de lenguaje para generar descripciones de columnas y clasificar PII a partir del esquema y documentación regulatoria.',
+          'BigQuery: Fuente del esquema real (INFORMATION_SCHEMA) y extracción de muestras representativas para análisis.',
+          'Cloud Storage: Almacenamiento de documentos regulatorios (D.L. 3.500, Circulares CMF/SVS) indexados para RAG.',
+          'Dataplex Data Catalog: Destino de la metadata generada — tags de negocio, clasificación de sensibilidad y dominio por asset.',
+          'Python: Orquestación del pipeline: extracción de esquema, llamadas a la API del modelo, validación y escritura en el catálogo.',
+          'Cloud Functions: Trigger serverless para ejecutar el generador cuando se detecta una nueva tabla o cambio de esquema.',
+          'RAG (Retrieval-Augmented Generation): Recuperación de fragmentos relevantes de la normativa para fundamentar cada descripción generada.',
+        ],
+      },
     ],
   },
 
