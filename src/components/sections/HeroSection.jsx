@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Badge }          from '../ui/Badge';
 import { SkillTag }       from '../ui/SkillTag';
-import { ParticleCanvas } from '../ui/ParticleCanvas';
 import { useAccessRequest } from '../../hooks/useAccessRequest';
 import { SKILLS } from '../../constants';
 import styles from './HeroSection.module.css';
@@ -18,8 +17,6 @@ export function HeroSection() {
 
   return (
     <section className={styles.hero}>
-      <div className={styles.gridBg} aria-hidden="true" />
-      <ParticleCanvas />
 
       <div className={styles.content}>
 

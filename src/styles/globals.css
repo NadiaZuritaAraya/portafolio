@@ -7,9 +7,9 @@
 }
 
 :root {
-  --bg:           #09090f;
-  --bg2:          #0f0f1a;
-  --bg3:          #14142a;
+  --bg:           #0b0119;
+  --bg2:          #13092e;
+  --bg3:          #1c1248;
   --violet:       #7c3aed;
   --violet-light: #a78bfa;
   --violet-dim:   #3b1f6b;
@@ -17,8 +17,8 @@
   --cyan-light:   #67e8f9;
   --cyan-dim:     #0e4f5c;
   --text:         #f1f0ff;
-  --text-muted:   #8b8ba0;
-  --border:       #1e1e35;
+  --text-muted:   #9d94b8;
+  --border:       #231840;
   --border-v:     #3b1f6b;
   --font:         'Inter', sans-serif;
   --radius-sm:    8px;
@@ -31,7 +31,12 @@ html, body, #root {
 }
 
 body {
-  background: var(--bg);
+  background:
+    radial-gradient(ellipse 80% 55% at 15% 5%,  rgba(124, 58, 237, 0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 40% at 85% 95%, rgba(6, 182, 212, 0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 60% 40%, rgba(91, 33, 182, 0.10) 0%, transparent 70%),
+    linear-gradient(145deg, #0b0119 0%, #1a0840 30%, #121448 65%, #08102e 100%);
+  background-attachment: fixed;
   color: var(--text);
   font-family: var(--font);
   font-size: 16px;
