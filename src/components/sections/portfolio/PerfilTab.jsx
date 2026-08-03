@@ -9,15 +9,8 @@ const STATS = [
   { value: 'ETL · BI',  label: 'Especialización core',   icon: 'ti-stack-2'        },
 ];
 
-function BadgeType({ type, status }) {
-  if (status === 'in-progress') return <span className={`${styles.badge} ${styles.badgeProgress}`}>En curso</span>;
-  if (type === 'course')        return <span className={`${styles.badge} ${styles.badgeCourse}`}>Curso</span>;
-  return <span className={`${styles.badge} ${styles.badgeCert}`}>Certificado</span>;
-}
-
 export function PerfilTab() {
   const [imgError, setImgError] = useState(false);
-  const allItems = [...CERTIFICATES, ...COURSES];
 
   return (
     <div className={styles.tab}>
@@ -44,24 +37,17 @@ export function PerfilTab() {
               <h1 className={styles.name}>{PROFILE.name}</h1>
               <p className={styles.titleRole}>{PROFILE.title}</p>
             </div>
-
             <div className={styles.bioBlock}>
               {PROFILE.bio.map((p, i) => (
                 <p key={i} className={styles.bio}>{p}</p>
               ))}
             </div>
-
             <div className={styles.social}>
               <a href={`mailto:${PROFILE.email}`} className={styles.socialLink}>
                 <i className="ti ti-mail" aria-hidden="true" />
                 <span>{PROFILE.email}</span>
               </a>
-              <a
-                href={PROFILE.linkedin}
-                className={styles.socialLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href={PROFILE.linkedin} className={styles.socialLink} target="_blank" rel="noopener noreferrer">
                 <i className="ti ti-brand-linkedin" aria-hidden="true" />
                 <span>LinkedIn</span>
               </a>
@@ -69,7 +55,6 @@ export function PerfilTab() {
           </div>
         </div>
 
-        {/* Stats panel */}
         <div className={styles.statsPanel}>
           {STATS.map((s) => (
             <div key={s.label} className={styles.statItem}>
@@ -81,83 +66,116 @@ export function PerfilTab() {
         </div>
       </section>
 
-      {/* ── Fila inferior ── */}
-      <div className={styles.bottomGrid}>
+      {/* ── Formación + Certificados (tarjeta unificada) ── */}
+      <div className={styles.mainCard}>
+        <div className={styles.mainCardGrid}>
 
-        {/* Formación + CV combinados */}
-        <section className={styles.card}>
-          <h2 className={styles.cardTitle}>
-            <i className="ti ti-school" aria-hidden="true" />
-            Formación académica
-          </h2>
-          {EDUCATION.map((edu) => (
-            <div key={edu.id} className={styles.eduItem}>
-              <div className={styles.eduHeader}>
-                <p className={styles.eduDegree}>{edu.degree}</p>
-                {edu.status === 'in-progress' && (
-                  <span className={`${styles.badge} ${styles.badgeProgress}`}>En curso</span>
-                )}
-                {edu.status === 'awaiting-certificate' && (
-                  <span className={`${styles.badge} ${styles.badgeAwaiting}`}>Certificado pendiente</span>
-                )}
-              </div>
-              <p className={styles.eduInstitution}>{edu.institution}</p>
-              <p className={styles.eduMeta}>{edu.location}</p>
-              {edu.graduated
-                ? <p className={styles.eduMeta}>Titulada el {edu.graduated}</p>
-                : <p className={styles.eduMeta}>{edu.period}</p>
-              }
-            </div>
-          ))}
-
-          <div className={styles.cardDivider} />
-
-          <h2 className={styles.cardTitle}>
-            <i className="ti ti-file-cv" aria-hidden="true" />
-            Currículum Vitae
-          </h2>
-          <p className={styles.cvSub}>Versión actualizada · PDF</p>
-          <a href="/CV_Nadia_Zurita_DE.pdf" download className={styles.cvBtn}>
-            <i className="ti ti-download" aria-hidden="true" />
-            Descargar CV
-          </a>
-        </section>
-
-        {/* Certificados y cursos */}
-        <section className={styles.card}>
-          <h2 className={styles.cardTitle}>
-            <i className="ti ti-certificate" aria-hidden="true" />
-            Certificados y cursos
-          </h2>
-          <div className={styles.certList}>
-            {allItems.map((item) => (
-              <div key={item.id} className={styles.certItem}>
-                <div className={styles.certInfo}>
-                  <div className={styles.certHeader}>
-                    <p className={styles.certName}>{item.name}</p>
-                    <BadgeType type={item.type} status={item.status} />
+          {/* Columna izquierda: Formación + CV */}
+          <div className={styles.col}>
+            <h2 className={styles.cardTitle}>
+              <i className="ti ti-school" aria-hidden="true" />
+              Formación académica
+            </h2>
+            <div className={styles.eduList}>
+              {EDUCATION.map((edu) => (
+                <div key={edu.id} className={styles.eduItem}>
+                  <div className={styles.eduHeader}>
+                    <p className={styles.eduDegree}>{edu.degree}</p>
+                    {edu.status === 'in-progress' && (
+                      <span className={`${styles.badge} ${styles.badgeProgress}`}>En curso</span>
+                    )}
+                    {edu.status === 'awaiting-certificate' && (
+                      <span className={`${styles.badge} ${styles.badgeAwaiting}`}>Cert. pendiente</span>
+                    )}
                   </div>
-                  <p className={styles.certInstitution}>{item.institution}</p>
-                  {item.detail && <p className={styles.certDetail}>{item.detail}</p>}
-                  {item.date && <p className={styles.certDate}>{item.date}</p>}
+                  <p className={styles.eduInstitution}>{edu.institution}</p>
+                  <p className={styles.eduMeta}>
+                    {edu.graduated ? `Titulada el ${edu.graduated}` : edu.period}
+                  </p>
                 </div>
-                {item.file && (
+              ))}
+            </div>
+
+            <div className={styles.cardDivider} />
+
+            <h2 className={styles.cardTitle}>
+              <i className="ti ti-file-cv" aria-hidden="true" />
+              Currículum Vitae
+            </h2>
+            <p className={styles.cvSub}>Versión actualizada · PDF</p>
+            <a href="/CV_Nadia_Zurita_DE.pdf" download className={styles.cvBtn}>
+              <i className="ti ti-download" aria-hidden="true" />
+              Descargar CV
+            </a>
+          </div>
+
+          {/* Divisor vertical */}
+          <div className={styles.colDivider} />
+
+          {/* Columna derecha: Certificados descargables */}
+          <div className={styles.col}>
+            <h2 className={styles.cardTitle}>
+              <i className="ti ti-certificate" aria-hidden="true" />
+              Certificados
+            </h2>
+            <div className={styles.certList}>
+              {CERTIFICATES.map((cert) => (
+                <div key={cert.id} className={styles.certItem}>
+                  <div className={styles.certInfo}>
+                    <div className={styles.certHeader}>
+                      <p className={styles.certName}>{cert.name}</p>
+                      <span className={`${styles.badge} ${styles.badgeCert}`}>Certificado</span>
+                    </div>
+                    <p className={styles.certInstitution}>{cert.institution}</p>
+                    {cert.detail && <p className={styles.certDetail}>{cert.detail}</p>}
+                    {cert.date  && <p className={styles.certDate}>{cert.date}</p>}
+                  </div>
                   <a
-                    href={item.file}
+                    href={cert.file}
                     download
                     className={styles.downloadBtn}
-                    aria-label={`Descargar ${item.name}`}
+                    aria-label={`Descargar ${cert.name}`}
                     title="Descargar PDF"
                   >
                     <i className="ti ti-download" aria-hidden="true" />
                   </a>
-                )}
-              </div>
-            ))}
+                </div>
+              ))}
+            </div>
           </div>
-        </section>
 
+        </div>
       </div>
+
+      {/* ── Cursos (sección separada abajo) ── */}
+      <section className={styles.coursesSection}>
+        <h2 className={styles.cardTitle}>
+          <i className="ti ti-books" aria-hidden="true" />
+          Cursos
+        </h2>
+        <div className={styles.coursesGrid}>
+          {COURSES.map((course) => (
+            <div key={course.id} className={styles.courseCard}>
+              <div className={styles.courseLeft}>
+                <i className="ti ti-certificate-2" aria-hidden="true" />
+              </div>
+              <div className={styles.courseInfo}>
+                <div className={styles.certHeader}>
+                  <p className={styles.certName}>{course.name}</p>
+                  {course.status === 'in-progress'
+                    ? <span className={`${styles.badge} ${styles.badgeProgress}`}>En curso</span>
+                    : <span className={`${styles.badge} ${styles.badgeCourse}`}>Completado</span>
+                  }
+                </div>
+                <p className={styles.certInstitution}>{course.institution}</p>
+                {course.detail && <p className={styles.certDetail}>{course.detail}</p>}
+              </div>
+              {course.date && <span className={styles.courseYear}>{course.date}</span>}
+            </div>
+          ))}
+        </div>
+      </section>
+
     </div>
   );
 }
