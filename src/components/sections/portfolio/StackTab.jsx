@@ -6,36 +6,39 @@ export function StackTab() {
     <div className={styles.tab}>
 
       {/* ── NÚCLEO ── */}
-      <section className={styles.core}>
-        <p className={styles.coreLabel}>
-          <i className="ti ti-bolt" aria-hidden="true" /> NÚCLEO
+      <section className={styles.coreSection}>
+        <p className={styles.sectionLabel}>
+          <i className="ti ti-bolt" aria-hidden="true" />
+          Tecnologías Núcleo
         </p>
-        <div className={styles.corePills}>
+        <div className={styles.coreGrid}>
           {STACK_CORE.map((tool) => (
-            <div key={tool.name} className={styles.corePill}>
-              <i className={`ti ${tool.icon}`} aria-hidden="true" />
-              <span>{tool.name}</span>
+            <div key={tool.name} className={`${styles.coreCard} ${styles[tool.color]}`}>
+              <i className={`ti ${tool.icon} ${styles.coreIcon}`} aria-hidden="true" />
+              <span className={styles.coreName}>{tool.name}</span>
             </div>
           ))}
         </div>
       </section>
 
       {/* ── Categorías ── */}
-      <div className={styles.grid}>
+      <div className={styles.catGrid}>
         {STACK_CATEGORIES.map((cat) => (
-          <div key={cat.id} className={`${styles.card} ${styles[cat.variant]}`}>
-            <div className={styles.cardHeader}>
-              <i className={`ti ${cat.icon}`} aria-hidden="true" />
-              <h3>{cat.name}</h3>
+          <div key={cat.id} className={`${styles.catCard} ${styles[cat.variant]}`}>
+            <div className={styles.catHeader}>
+              <div className={styles.catIconWrap}>
+                <i className={`ti ${cat.icon}`} aria-hidden="true" />
+              </div>
+              <div>
+                <h3 className={styles.catName}>{cat.name}</h3>
+                <span className={styles.catCount}>{cat.tools.length} herramientas</span>
+              </div>
             </div>
-            <ul className={styles.toolList}>
+            <div className={styles.chipGrid}>
               {cat.tools.map((tool) => (
-                <li key={tool} className={styles.toolItem}>
-                  <i className="ti ti-point-filled" aria-hidden="true" />
-                  {tool}
-                </li>
+                <span key={tool} className={styles.chip}>{tool}</span>
               ))}
-            </ul>
+            </div>
           </div>
         ))}
       </div>

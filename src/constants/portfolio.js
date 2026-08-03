@@ -78,12 +78,18 @@ export const COURSES = [
 ];
 
 export const STACK_CORE = [
-  { name: 'BigQuery',       icon: 'ti-database'        },
-  { name: 'Python',         icon: 'ti-brand-python'    },
-  { name: 'SQL',            icon: 'ti-code'            },
-  { name: 'Apache Airflow', icon: 'ti-topology-star-3' },
-  { name: 'Power BI',       icon: 'ti-chart-bar'       },
-  { name: 'Terraform',      icon: 'ti-cube-send'       },
+  { name: 'GCP',        icon: 'ti-cloud',           color: 'violet' },
+  { name: 'AWS',        icon: 'ti-brand-aws',        color: 'cyan'   },
+  { name: 'Python',     icon: 'ti-brand-python',     color: 'violet' },
+  { name: 'SQL',        icon: 'ti-database',         color: 'cyan'   },
+  { name: 'BigQuery',   icon: 'ti-chart-circles',    color: 'violet' },
+  { name: 'Power BI',   icon: 'ti-chart-bar',        color: 'cyan'   },
+  { name: 'Qlik Sense', icon: 'ti-chart-dots',       color: 'violet' },
+  { name: 'Airflow',    icon: 'ti-topology-star-3',  color: 'cyan'   },
+  { name: 'Terraform',  icon: 'ti-cube-send',        color: 'violet' },
+  { name: 'Git',        icon: 'ti-git-branch',       color: 'cyan'   },
+  { name: 'dbt',        icon: 'ti-hexagon-letter-d', color: 'violet' },
+  { name: 'Docker',     icon: 'ti-brand-docker',     color: 'cyan'   },
 ];
 
 export const STACK_CATEGORIES = [
