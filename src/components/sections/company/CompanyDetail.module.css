@@ -197,6 +197,12 @@
   border-color: var(--cyan);
 }
 
+.projectButtonDisabled {
+  opacity: 0.35;
+  cursor: default;
+  pointer-events: none;
+}
+
 .stackTags {
   display: flex;
   flex-wrap: wrap;

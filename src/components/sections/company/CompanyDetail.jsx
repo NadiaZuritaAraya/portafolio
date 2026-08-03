@@ -62,17 +62,19 @@ export function CompanyDetail({ company, onBack }) {
                 <div className={styles.projectContent}>
                   <h3 className={styles.projectTitle}>{project.name}</h3>
                   <p className={styles.projectDescription}>{project.description}</p>
-                  {project.compact && project.tags?.length > 0 ? (
+                  {project.compact && project.tags?.length > 0 && (
                     <div className={styles.projectTags}>
                       {project.tags.map((tag) => (
                         <span key={tag} className={styles.projectTag}>{tag}</span>
                       ))}
                     </div>
-                  ) : (
-                    <button className={styles.projectButton} aria-label={`Ver detalles de ${project.name}`}>
-                      Ver detalles <i className="ti ti-arrow-right" aria-hidden="true" />
-                    </button>
                   )}
+                  <button
+                    className={`${styles.projectButton} ${project.compact ? styles.projectButtonDisabled : ''}`}
+                    aria-label={`Ver detalles de ${project.name}`}
+                  >
+                    Ver detalles <i className="ti ti-arrow-right" aria-hidden="true" />
+                  </button>
                 </div>
               </div>
             ))}
