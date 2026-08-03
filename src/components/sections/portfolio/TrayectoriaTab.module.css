@@ -1,0 +1,49 @@
+.tab {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeInUp 0.4s ease both;
+}
+
+/* ── Quick-nav de empresas ── */
+.quickNav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.75rem;
+}
+
+.quickBtn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.quickBtn:hover {
+  border-color: rgba(124, 58, 237, 0.45);
+  background: rgba(124, 58, 237, 0.08);
+  transform: translateY(-2px);
+}
+
+.quickName {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--violet-light);
+}
+
+.quickPeriod {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.quickRole {
+  font-size: 12px;
+  color: var(--cyan-light);
+  margin-top: 2px;
+}

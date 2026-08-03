@@ -1,94 +1,91 @@
 import { useState, useEffect } from 'react';
 import { useTokenValidation }  from '../hooks/useTokenValidation';
-import { CompanyGrid }         from '../components/sections/company/CompanyGrid';
-import { CompanyDetail }       from '../components/sections/company/CompanyDetail';
-import { COMPANIES }           from '../constants/companies.js';
 import { ROUTES }              from '../constants';
+import { NavTabs }             from '../components/sections/portfolio/NavTabs';
+import { PerfilTab }           from '../components/sections/portfolio/PerfilTab';
+import { StackTab }            from '../components/sections/portfolio/StackTab';
+import { TrayectoriaTab }      from '../components/sections/portfolio/TrayectoriaTab';
 import styles from './PortfolioPage.module.css';
 
 export function PortfolioPage() {
   const { checking, granted, email } = useTokenValidation();
+  const [activeTab,    setActiveTab]    = useState('perfil');
   const [selectedSlug, setSelectedSlug] = useState(null);
 
+  /* redirect si no tiene acceso */
   useEffect(() => {
     if (!checking && !granted) {
       window.location.href = ROUTES.home;
     }
   }, [checking, granted]);
 
+  /* sincronizar ?project= en la URL */
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const slug   = params.get('project');
-    if (slug) setSelectedSlug(slug);
+    if (slug) { setSelectedSlug(slug); setActiveTab('trayectoria'); }
   }, []);
 
-  function selectProject(slug) {
+  function handleTabChange(tab) {
+    setActiveTab(tab);
+    if (tab !== 'trayectoria') {
+      setSelectedSlug(null);
+      clearProjectParam();
+    }
+  }
+
+  function handleSelectCompany(slug) {
+    setActiveTab('trayectoria');
     setSelectedSlug(slug);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
     const url = new URL(window.location.href);
     url.searchParams.set('project', slug);
     window.history.pushState({}, '', url);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  function goBack() {
+  function handleBack() {
     setSelectedSlug(null);
+    clearProjectParam();
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function clearProjectParam() {
     const url = new URL(window.location.href);
     url.searchParams.delete('project');
     window.history.pushState({}, '', url);
   }
 
+  /* estados de carga */
   if (checking) {
     return (
       <div className={styles.center}>
-        <div className={styles.spinner} aria-label="Cargando portafolio…" />
+        <div className={styles.spinner} aria-label="Cargando…" />
       </div>
     );
   }
 
   if (!granted) return null;
 
-  const company = selectedSlug ? COMPANIES.find(c => c.slug === selectedSlug) : null;
-
   return (
-    <main className={styles.page}>
-      <header className={styles.header}>
-        <p className={styles.welcome}>
-          <i className="ti ti-check" aria-hidden="true" />
-          Acceso concedido · {email}
-        </p>
-        <a href={ROUTES.home} className={styles.exit}>Salir</a>
-      </header>
+    <div className={styles.page}>
+      <NavTabs
+        active={activeTab}
+        email={email}
+        onTabChange={handleTabChange}
+        onSelectCompany={handleSelectCompany}
+      />
 
-      {company ? (
-        <CompanyDetail company={company} onBack={goBack} />
-      ) : (
-        <>
-          <CompanyGrid onSelect={selectProject} />
-          <CvSection />
-        </>
-      )}
-    </main>
-  );
-}
-
-function CvSection() {
-  return (
-    <div className={styles.cvSection}>
-      <div className={styles.cvRow}>
-        <div>
-          <p className={styles.cvTitle}>Currículum Vitae</p>
-          <p className={styles.cvSub}>Descarga el CV completo en PDF</p>
-        </div>
-        <a
-          href="/CV_Nadia_Zurita_DE.pdf"
-          download
-          className={styles.cvBtn}
-          aria-label="Descargar CV en PDF"
-        >
-          <i className="ti ti-download" aria-hidden="true" /> Descargar CV
-        </a>
-      </div>
+      <main className={styles.content}>
+        {activeTab === 'perfil' && <PerfilTab />}
+        {activeTab === 'stack'  && <StackTab />}
+        {activeTab === 'trayectoria' && (
+          <TrayectoriaTab
+            selectedSlug={selectedSlug}
+            onSelect={handleSelectCompany}
+            onBack={handleBack}
+          />
+        )}
+      </main>
     </div>
   );
 }
