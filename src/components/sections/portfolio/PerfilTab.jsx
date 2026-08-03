@@ -164,13 +164,24 @@ export function PerfilTab() {
                   <p className={styles.certName}>{course.name}</p>
                   {course.status === 'in-progress'
                     ? <span className={`${styles.badge} ${styles.badgeProgress}`}>En curso</span>
-                    : <span className={`${styles.badge} ${styles.badgeCourse}`}>Completado</span>
+                    : <span className={`${styles.badge} ${styles.badgeCert}`}>Certificado</span>
                   }
                 </div>
                 <p className={styles.certInstitution}>{course.institution}</p>
                 {course.detail && <p className={styles.certDetail}>{course.detail}</p>}
+                {course.date  && <p className={styles.certDate}>{course.date}</p>}
               </div>
-              {course.date && <span className={styles.courseYear}>{course.date}</span>}
+              {course.file && (
+                <a
+                  href={course.file}
+                  download
+                  className={styles.downloadBtn}
+                  aria-label={`Descargar ${course.name}`}
+                  title="Descargar PDF"
+                >
+                  <i className="ti ti-download" aria-hidden="true" />
+                </a>
+              )}
             </div>
           ))}
         </div>

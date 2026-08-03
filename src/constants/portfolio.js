@@ -25,7 +25,7 @@ export const EDUCATION = [
     degree:      'Arquitectura de Software',
     institution: 'Universidad Autónoma de Chile',
     location:    'Santiago, Chile',
-    period:      '2024 – 2025',
+    period:      '2025',
     graduated:   null,
     status:      'awaiting-certificate',
   },
@@ -34,7 +34,7 @@ export const EDUCATION = [
     degree:      'Diplomado en Dirección de Proyectos',
     institution: 'Universidad del Desarrollo',
     location:    'Santiago, Chile',
-    period:      '2025 – 2026',
+    period:      '2026',
     graduated:   null,
     status:      'in-progress',
   },
@@ -43,23 +43,14 @@ export const EDUCATION = [
     degree:      'Diplomado en Dirección de Proyectos y PMO',
     institution: 'Universidad Andrés Bello',
     location:    'Santiago, Chile',
-    period:      '2025 – 2026',
+    period:      '2026',
     graduated:   null,
     status:      'in-progress',
   },
 ];
 
+/* Mostrado junto a la formación de carrera (col derecho tarjeta principal) */
 export const CERTIFICATES = [
-  {
-    id:          'modulos-duocuc',
-    name:        'Certificado de Módulos',
-    detail:      'Programación Avanzada · Arquitectura de Sistemas · Auditoría · Modelamiento · Seguridad Computacional · Administración de BD · Sistemas Operativos · Gestión de Proyectos',
-    institution: 'Instituto Profesional DuocUC',
-    date:        'Agosto 2026',
-    file:        '/certificates/certificado-modulos-duocuc.pdf',
-    type:        'certificate',
-    status:      'completed',
-  },
   {
     id:          'profesional-registro-civil',
     name:        'Certificado de Profesionales',
@@ -72,25 +63,16 @@ export const CERTIFICATES = [
   },
 ];
 
+/* Mostrado en sección Cursos (abajo) */
 export const COURSES = [
   {
-    id:          'gcp-professional-de',
-    name:        'Professional Data Engineer',
-    institution: 'Google Cloud',
-    detail:      'Diseño de sistemas de procesamiento, almacenamiento y análisis de datos a escala en GCP',
-    date:        '2025',
-    file:        null,
-    type:        'course',
-    status:      'completed',
-  },
-  {
-    id:          'airflow-fundamentals',
-    name:        'Apache Airflow Fundamentals',
-    institution: 'Astronomer',
-    detail:      'Orquestación de pipelines, diseño de DAGs y mejores prácticas con Airflow',
-    date:        '2024',
-    file:        null,
-    type:        'course',
+    id:          'modulos-duocuc',
+    name:        'Certificado de Módulos',
+    detail:      'Programación Avanzada · Arquitectura de Sistemas · Auditoría · Modelamiento · Seguridad Computacional · Administración de BD · Sistemas Operativos · Gestión de Proyectos',
+    institution: 'Instituto Profesional DuocUC',
+    date:        'Agosto 2026',
+    file:        '/certificates/certificado-modulos-duocuc.pdf',
+    type:        'certificate',
     status:      'completed',
   },
 ];
