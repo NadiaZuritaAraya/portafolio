@@ -2,7 +2,10 @@ export const PROFILE = {
   name:  'Nadia Zurita',
   title: 'Senior Data Engineer & BI',
   photo: '/profile/nadia.jpg',
-  bio: 'Ingeniera en Informática con más de 6 años de experiencia en ingeniería de datos y Business Intelligence, especializada en plataformas GCP (BigQuery, Dataflow, Cloud Run, Cloud Functions, Pub/Sub) y AWS (Glue, Redshift, Lambda, MWAA). Ha liderado proyectos de migración de datos on-premise a la nube y desarrollo de pipelines end-to-end en organizaciones del sector financiero y aeronáutico. Con experiencia consolidada en modelamiento ETL, gobierno de datos, reportería avanzada en Power BI y gestión ágil de proyectos.',
+  bio: [
+    'Senior Data Engineer & BI con 8 años de experiencia diseñando e implementando arquitecturas de datos cloud-native en los sectores financiero, aeronáutico y aerolíneas. Especializada en GCP (BigQuery, Dataflow, Cloud Run, Cloud Functions, Pub/Sub, Dataplex) y AWS (Glue, Redshift, Lambda, MWAA), con dominio avanzado de herramientas de orquestación como Apache Airflow, Terraform y dbt.',
+    'Ha liderado proyectos de migración on-premise a la nube, gobierno de datos con Dataplex, construcción de pipelines ETL/ELT end-to-end y soluciones analíticas avanzadas con Power BI y Qlik Sense. Experiencia en liderazgo técnico de equipos multidisciplinarios, trabajo directo con stakeholders ejecutivos y gestión de proyectos de alto impacto bajo metodologías ágiles.',
+  ],
   email:    'nadia.zuritaaraya@gmail.com',
   linkedin: 'https://www.linkedin.com/in/nadia-soledad-zurita-araya/',
 };
@@ -27,7 +30,8 @@ export const CERTIFICATES = [
     institution: 'Instituto Profesional DuocUC',
     date:        'Agosto 2026',
     file:        '/certificates/certificado-modulos-duocuc.pdf',
-    icon:        'ti-certificate',
+    type:        'certificate',
+    status:      'completed',
   },
   {
     id:          'profesional-registro-civil',
@@ -36,7 +40,31 @@ export const CERTIFICATES = [
     institution: 'Servicio de Registro Civil e Identificación',
     date:        'Abril 2026',
     file:        '/certificates/certificado-profesional-registro-civil.pdf',
-    icon:        'ti-id',
+    type:        'certificate',
+    status:      'completed',
+  },
+];
+
+export const COURSES = [
+  {
+    id:          'gcp-professional-de',
+    name:        'Professional Data Engineer',
+    institution: 'Google Cloud',
+    detail:      'Diseño de sistemas de procesamiento, almacenamiento y análisis de datos a escala en GCP',
+    date:        '2025',
+    file:        null,
+    type:        'course',
+    status:      'completed',
+  },
+  {
+    id:          'airflow-fundamentals',
+    name:        'Apache Airflow Fundamentals',
+    institution: 'Astronomer',
+    detail:      'Orquestación de pipelines, diseño de DAGs y mejores prácticas con Airflow',
+    date:        '2024',
+    file:        null,
+    type:        'course',
+    status:      'completed',
   },
 ];
 
