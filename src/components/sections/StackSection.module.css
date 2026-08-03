@@ -1,5 +1,6 @@
 .section {
-  padding: 2rem 1.5rem 2.5rem;
+  padding: 0.75rem 1.5rem 1rem;
+  flex-shrink: 0;
 }
 
 .label {
@@ -7,26 +8,26 @@
   letter-spacing: 0.12em;
   color: var(--cyan);
   text-transform: uppercase;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
 }
 
 .title {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 500;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 7px;
 }
 
 .card {
   background: var(--bg2);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: 1.1rem 1rem;
+  padding: 0.7rem 0.75rem;
   text-align: center;
   transition: border-color 0.25s, transform 0.25s;
   cursor: default;
@@ -34,35 +35,42 @@
 
 .card:hover {
   border-color: var(--violet);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
 .icon {
-  font-size: 24px;
+  font-size: 20px;
   display: block;
-  margin-bottom: 7px;
+  margin-bottom: 5px;
   transition: color 0.2s;
 }
 
 .violet { color: var(--violet-light); }
 .cyan   { color: var(--cyan-light);   }
 
-.card:hover .icon {
-  color: var(--cyan-light);
-}
-
-.card:hover .cyan {
-  color: var(--violet-light);
-}
+.card:hover .icon  { color: var(--cyan-light);   }
+.card:hover .cyan  { color: var(--violet-light); }
 
 .name {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
-  margin-bottom: 3px;
+  margin-bottom: 2px;
 }
 
 .desc {
-  font-size: 11px;
+  font-size: 10px;
   color: var(--text-muted);
-  line-height: 1.5;
+  line-height: 1.4;
+}
+
+@media (max-width: 960px) {
+  .section {
+    padding: 1.5rem 1.5rem 2rem;
+  }
+  .title    { font-size: 16px; margin-bottom: 1rem; }
+  .grid     { gap: 10px; }
+  .card     { padding: 1rem; }
+  .icon     { font-size: 22px; }
+  .name     { font-size: 13px; }
+  .desc     { font-size: 11px; }
 }
