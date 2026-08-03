@@ -3,10 +3,9 @@ import { PROFILE, EDUCATION, CERTIFICATES, COURSES } from '../../../constants/po
 import styles from './PerfilTab.module.css';
 
 const STATS = [
-  { value: '8+',        label: 'Años de experiencia',    icon: 'ti-calendar-stats' },
-  { value: 'GCP · AWS', label: 'Plataformas cloud',      icon: 'ti-cloud'          },
-  { value: '5',         label: 'Empresas en producción', icon: 'ti-building-skyscraper' },
-  { value: 'ETL · BI',  label: 'Especialización core',   icon: 'ti-stack-2'        },
+  { value: '8+',        label: 'Años de experiencia', icon: 'ti-calendar-stats' },
+  { value: 'GCP · AWS', label: 'Plataformas cloud',   icon: 'ti-cloud'          },
+  { value: 'ETL · BI',  label: 'Especialización core', icon: 'ti-stack-2'       },
 ];
 
 export function PerfilTab() {
