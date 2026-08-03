@@ -54,13 +54,25 @@ export function CompanyDetail({ company, onBack }) {
           </h2>
           <div className={styles.projectsGrid}>
             {projects.map((project) => (
-              <div key={project.id} className={styles.projectCard} onClick={() => setSelectedProject(project)}>
+              <div
+                key={project.id}
+                className={`${styles.projectCard} ${project.compact ? styles.projectCardCompact : ''}`}
+                onClick={project.compact ? undefined : () => setSelectedProject(project)}
+              >
                 <div className={styles.projectContent}>
                   <h3 className={styles.projectTitle}>{project.name}</h3>
                   <p className={styles.projectDescription}>{project.description}</p>
-                  <button className={styles.projectButton} aria-label={`Ver detalles de ${project.name}`}>
-                    Ver detalles <i className="ti ti-arrow-right" aria-hidden="true" />
-                  </button>
+                  {project.compact && project.tags?.length > 0 ? (
+                    <div className={styles.projectTags}>
+                      {project.tags.map((tag) => (
+                        <span key={tag} className={styles.projectTag}>{tag}</span>
+                      ))}
+                    </div>
+                  ) : (
+                    <button className={styles.projectButton} aria-label={`Ver detalles de ${project.name}`}>
+                      Ver detalles <i className="ti ti-arrow-right" aria-hidden="true" />
+                    </button>
+                  )}
                 </div>
               </div>
             ))}
