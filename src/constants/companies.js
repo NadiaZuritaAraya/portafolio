@@ -26,6 +26,8 @@ export const COMPANIES = [
         id: 'afp-migracion-end-to-end',
         name: 'Migración End-to-End On-Premise → GCP',
         description: 'Migración de datos desde bases de datos on-premise hacia infraestructura en GCP con validación de integridad y zero-downtime.',
+        compact: true,
+        tags: ['Cloud Data Fusion', 'BigQuery', 'Cloud Dataflow', 'Cloud Functions', 'Terraform', 'Python', 'SQL', 'GCS'],
         stack: [
           'Google Cloud Storage: Gestión de archivos en buckets para entornos ETL, con control de versiones y organización por ambientes (dev, qa, prod).',
           'BigQuery: Modelado de datos, creación de vistas y tablas particionadas, optimización de consultas y manejo de grandes volúmenes de datos.',
@@ -41,6 +43,8 @@ export const COMPANIES = [
         id: 'afp-arquitectura-datos',
         name: 'Apoyo en Arquitectura de Datos',
         description: 'Diseño y evolución de la arquitectura Data Lakehouse con capas crudo, curado y producto para soportar múltiples casos de uso analíticos.',
+        compact: true,
+        tags: ['BigQuery', 'Dataform', 'GCS', 'IAM', 'Cloud Resource Manager', 'Monitoring & Logging'],
         stack: [
           'BigQuery: Diseño de esquema dimensional, tablas de hechos y dimensiones, optimización para análisis OLAP.',
           'Dataform: Modelado modular en SQL, estructuración en capas (raw, staging, marts), control de dependencias y versionamiento con Git.',
@@ -54,6 +58,8 @@ export const COMPANIES = [
         id: 'afp-dataform',
         name: 'Desarrollo de Dataform',
         description: '80+ modelos SQL documentados con dependencias explícitas, versionado en Git, y ejecución automática con testing integrado.',
+        compact: true,
+        tags: ['Dataform', 'BigQuery', 'Git & GitHub', 'SQL', 'YAML'],
         stack: [
           'Dataform: Desarrollo modular con SQL, definición de dependencias (ref/source), testing y documentación de columnas.',
           'Git & GitHub: Versionado de modelos, code reviews, branching strategy (main/dev), CI/CD integration.',
@@ -66,6 +72,8 @@ export const COMPANIES = [
         id: 'afp-consultas-programadas',
         name: 'Desarrollo de Consultas Programadas',
         description: 'Implementación de queries programadas (scheduled queries) para agregaciones diarias, actualizaciones de vistas y generación de reportes automatizados.',
+        compact: true,
+        tags: ['BigQuery', 'Scheduled Queries', 'SQL', 'Python', 'Cloud Pub/Sub'],
         stack: [
           'BigQuery: Desarrollo y optimización de SQL complejas con window functions, subconsultas correlacionadas y CTEs.',
           'Scheduled Queries: Configuración de jobs que ejecutan automáticamente a intervalos específicos con notificaciones de error.',
