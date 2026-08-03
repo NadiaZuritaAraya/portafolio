@@ -25,7 +25,7 @@ export function CompanyGrid({ onSelect }) {
             <p className={styles.cardPeriod}>
               <i className="ti ti-calendar" aria-hidden="true" /> {c.period}
             </p>
-            <p className={styles.cardDesc}>{c.description}</p>
+            <p className={styles.cardDesc}>{c.summary}</p>
             <div className={styles.cardTechs}>
               {c.technologies.slice(0, 3).map((tech, i) => (
                 <span key={tech} className={`${styles.tag} ${i % 2 === 1 ? styles.tagC : ''}`}>
@@ -38,7 +38,7 @@ export function CompanyGrid({ onSelect }) {
             </div>
             <div className={styles.cardFooter}>
               <span className={styles.link}>
-                <i className="ti ti-arrow-right" aria-hidden="true" /> Ver trayectoria
+                <i className="ti ti-arrow-right" aria-hidden="true" /> Ver proyecto
               </span>
             </div>
           </article>
