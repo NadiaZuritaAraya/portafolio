@@ -92,10 +92,21 @@ export function PerfilTab() {
           </h2>
           {EDUCATION.map((edu) => (
             <div key={edu.id} className={styles.eduItem}>
-              <p className={styles.eduDegree}>{edu.degree}</p>
+              <div className={styles.eduHeader}>
+                <p className={styles.eduDegree}>{edu.degree}</p>
+                {edu.status === 'in-progress' && (
+                  <span className={`${styles.badge} ${styles.badgeProgress}`}>En curso</span>
+                )}
+                {edu.status === 'awaiting-certificate' && (
+                  <span className={`${styles.badge} ${styles.badgeAwaiting}`}>Certificado pendiente</span>
+                )}
+              </div>
               <p className={styles.eduInstitution}>{edu.institution}</p>
               <p className={styles.eduMeta}>{edu.location}</p>
-              <p className={styles.eduMeta}>Titulada el {edu.graduated}</p>
+              {edu.graduated
+                ? <p className={styles.eduMeta}>Titulada el {edu.graduated}</p>
+                : <p className={styles.eduMeta}>{edu.period}</p>
+              }
             </div>
           ))}
 

@@ -213,7 +213,7 @@
   display: grid;
   grid-template-columns: 360px 1fr;
   gap: 1.25rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 /* ═══════════════════════════════════════
@@ -261,22 +261,39 @@
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
+  padding-bottom: 0.875rem;
+  border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+}
+
+.eduItem:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.eduHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .eduDegree {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--text);
+  line-height: 1.35;
+  flex: 1;
+  min-width: 0;
 }
 
 .eduInstitution {
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 500;
   color: var(--cyan-light);
 }
 
 .eduMeta {
-  font-size: 12px;
+  font-size: 11.5px;
   color: var(--text-muted);
   line-height: 1.5;
 }
@@ -402,6 +419,13 @@
   background: rgba(245, 158, 11, 0.12);
   border: 1px solid rgba(245, 158, 11, 0.3);
   color: #fbbf24;
+}
+
+.badgeAwaiting {
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #a5b4fc;
+  font-size: 9.5px;
 }
 
 /* Download button */
