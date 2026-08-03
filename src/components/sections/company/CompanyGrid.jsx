@@ -1,37 +1,14 @@
-import { useState } from 'react';
-import { COMPANIES, COMPANY_FILTERS } from '../../../constants/companies.js';
+import { COMPANIES } from '../../../constants/companies.js';
 import styles from './CompanyGrid.module.css';
 
 export function CompanyGrid({ onSelect }) {
-  const [active, setActive] = useState('all');
-
-  const filtered = active === 'all'
-    ? COMPANIES
-    : COMPANIES.filter(c => {
-        if (active === 'current') return c.id === 'afp-capital';
-        return false;
-      });
-
   return (
     <section className={styles.section}>
       <p className={styles.label}>Mi trayectoria profesional</p>
       <h2 className={styles.title}>Empresas</h2>
 
-      <div className={styles.filters} role="group" aria-label="Filtrar empresas">
-        {COMPANY_FILTERS.map(f => (
-          <button
-            key={f.key}
-            className={`${styles.fbtn} ${active === f.key ? styles.on : ''}`}
-            onClick={() => setActive(f.key)}
-            aria-pressed={active === f.key}
-          >
-            {f.label}
-          </button>
-        ))}
-      </div>
-
       <div className={styles.grid}>
-        {filtered.map(c => (
+        {COMPANIES.map(c => (
           <article
             key={c.id}
             className={styles.card}
