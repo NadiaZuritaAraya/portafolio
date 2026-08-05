@@ -309,6 +309,7 @@ export const COMPANIES = [
       'Dashboard logístico en tiempo real (actualización cada 15 min) con adopción del 100% del área',
       'Reducción del tiempo de reporte de 2 días a tiempo real mediante automatización ETL con Control-M y Oracle',
       'Migración de aplicaciones legacy QlikView a Qlik Sense con mejora de experiencia de usuario',
+      'Reducción del 95% en tiempos de entrega a clientes mediante visibilidad en tiempo real de stock, pedidos futuros, capacidad de personal y gestión de transporte, eliminando quiebres de stock, optimizando la planificación operacional y habilitando el control integral de la cadena de distribución desde una sola plataforma',
     ],
     technologies: ['Qlik Sense', 'QlikView', 'NPrinting', 'Oracle', 'SQL Server', 'PostgreSQL', 'Control-M', 'SQL', 'Python', 'GCP', 'dbt', 'BigQuery'],
     projects: [
