@@ -72,6 +72,25 @@
   background: rgba(124, 58, 237, 0.15);
 }
 
+.tabDisabled {
+  opacity: 0.45;
+  cursor: default;
+  pointer-events: none;
+}
+
+.tabBadge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 10px;
+  background: rgba(124, 58, 237, 0.18);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  color: var(--violet-light);
+  line-height: 1;
+}
+
 .chevron {
   font-size: 12px;
   transition: transform 0.2s;

@@ -7,6 +7,7 @@ const TABS = [
   { id: 'perfil',      label: 'Perfil',      icon: 'ti-user'      },
   { id: 'stack',       label: 'Stack',        icon: 'ti-stack-2'   },
   { id: 'trayectoria', label: 'Trayectoria',  icon: 'ti-briefcase', hasDropdown: true },
+  { id: 'proyectos',   label: 'Proyectos',    icon: 'ti-folder',    disabled: true },
 ];
 
 export function NavTabs({ active, email, onTabChange, onSelectCompany }) {
@@ -24,6 +25,7 @@ export function NavTabs({ active, email, onTabChange, onSelectCompany }) {
   }, []);
 
   function handleTabClick(tab) {
+    if (tab.disabled) return;
     if (tab.hasDropdown) {
       setDropdownOpen((v) => !v);
     } else {
@@ -51,11 +53,15 @@ export function NavTabs({ active, email, onTabChange, onSelectCompany }) {
               <button
                 role="tab"
                 aria-selected={active === tab.id}
-                className={`${styles.tab} ${active === tab.id ? styles.active : ''}`}
+                aria-disabled={tab.disabled}
+                className={`${styles.tab} ${active === tab.id ? styles.active : ''} ${tab.disabled ? styles.tabDisabled : ''}`}
                 onClick={() => handleTabClick(tab)}
               >
                 <i className={`ti ${tab.icon}`} aria-hidden="true" />
                 <span>{tab.label}</span>
+                {tab.disabled && (
+                  <span className={styles.tabBadge}>Próximamente</span>
+                )}
                 {tab.hasDropdown && (
                   <i
                     className={`ti ti-chevron-down ${styles.chevron} ${dropdownOpen ? styles.chevronOpen : ''}`}
